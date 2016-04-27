@@ -1,0 +1,44 @@
+@(thisUser:User)
+
+    @import b3.inline.fieldConstructor
+    @import play.api.Play.current
+    @import play.api.i18n.Messages.Implicits._
+
+@main(""){
+    <!-- stat -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="" onclick="history.back()">X-Craft MAFIA</a>
+            </div>
+            <div>
+            @b3.form(action = routes.Application.doUnlogin(), 'class -> "navbar-form navbar-right") {
+                @b3.submit('class -> "btn btn-default", 'style -> "margin-top: 9px") {Выйти}
+            }
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a  href="@routes.Application.stat">Статистика</a></li>
+
+                        <li ><a href="@routes.Application.newGame" >Записать игру</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>HELLO, @thisUser</h2>
+    </div> <!-- /.container -->
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="@routes.Assets.at("bootstrap/js/bootstrap.min.js")"></script>
+}

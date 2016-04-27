@@ -1,0 +1,50 @@
+@(message: String,userForm: Form[User])
+
+@import b3.inline.fieldConstructor
+@import play.api.Play.current
+@import play.api.i18n.Messages.Implicits._
+
+@main("") {
+    <!-- index -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                    <a class="navbar-brand" href="@routes.Application.index()" >X-Craft MAFIA</a>
+
+            </div>
+            <div>
+                @b3.form(action = routes.Application.doLogin(), 'class -> "navbar-form navbar-right") {
+                    @b3.text(userForm("username"), '_hiddenLabel -> "Input login", 'placeholder -> "Login", 'width -> "200")
+                    @b3.password(userForm("password"), '_hiddenLabel -> "Password", Symbol("placeholder") -> "Password", 'width -> "200")
+                    @b3.submit('class -> "btn btn-success", 'style -> "margin-top: 9px") {Войти}
+                    @if(userForm.hasGlobalErrors) {
+                        <ul>
+                        @for(error <- userForm.globalErrors) {
+                            <p class="login-error navbar-form navbar-right">@error.message</p>
+                        }
+                        </ul>
+                    }
+                }
+
+
+
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+    </div><!-- /.container -->
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="@routes.Assets.at("bootstrap/js/bootstrap.min.js")"></script>
+}

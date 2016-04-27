@@ -1,0 +1,79 @@
+@(title: String)(content: Html)
+
+
+<!DOCTYPE html>
+
+<html>
+    <title>@title</title>
+    <head>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet"
+        href="@routes.Assets.at("bootstrap/css/bootstrap.css")">
+        <link rel="stylesheet"
+        href="@routes.Assets.at("stylesheets/main.css")">
+        <script type='text/javascript'
+        src='@routes.Assets.at("bootstrap/js/bootstrap.js")'></script>
+        <link href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="assets/images/favicon.png">
+            <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+            <!--[if lt IE 9]>
+        <script href="assets/bootstrap/js/ie8-responsive-file-warning.js" ></script>
+    <![endif]-->
+        <script href="assets/bootstrap/js/ie-emulation-modes-warning.js"></script>
+            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+            <!--[if lt IE 9]>
+        <script href="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script href="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+        <style>
+        body {
+            background: #000000 url("assets/images/bkground.png") no-repeat;
+            -moz-background-size: 100%; /* Firefox 3.6+ */
+            -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+            -o-background-size: 100%; /* Opera 9.6+ */
+            background-size: 100%; /* Современные браузеры */
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        label, input {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .login-error {
+            margin-top: 5px;
+            color: #d31200;
+        }
+
+        .lead {
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.7); /* Цвет текста */
+        }
+
+
+        TD, TH {
+            color: #d1051d;
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid #54525c; /* Параметры рамки */
+        }
+
+
+        </style>
+    </head>
+    <body>
+    @content
+    </body>
+</html>
